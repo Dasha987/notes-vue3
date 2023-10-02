@@ -5,13 +5,13 @@
 @font-face {
   font-weight: 400;
   font-family: Montserrat;
-  src: url("@/assets/fonts/Montserrat/Montserrat-Regular.ttf");
+  src: url('@/assets/fonts/Montserrat/Montserrat-Regular.ttf');
 }
 
 @font-face {
-  font-weight: 700; 
+  font-weight: 700;
   font-family: Montserrat;
-  src: url("@/assets/fonts/Montserrat/Montserrat-Bold.ttf");
+  src: url('@/assets/fonts/Montserrat/Montserrat-Bold.ttf');
 }
 
 html {
@@ -137,3 +137,4 @@ section,
 
 @import './common/_common';
 @import './helpers/_helpers';
+@import './notes/_notes';
