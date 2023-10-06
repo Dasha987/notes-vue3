@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomePage from '@/pages/Home.vue'
 import ContactsPage from '@/pages/Contacts.vue'
-import ErrorPage from '@/pages/Error.vue'
+import NotFoundPage from '@/pages/NotFound.vue'
 
 const routes = [
   {
@@ -14,12 +14,11 @@ const routes = [
     name: 'contacts',
     component: ContactsPage
   },
-  // будет отобраться страница Error
-  // по иным маршрутам, кроме существующих
+  // будет отобраться страница по иным маршрутам, кроме существующих
   {
     path: '/:CatchAll(.*)',
     name: '404',
-    component: ErrorPage
+    component: NotFoundPage
   }
 ]
 

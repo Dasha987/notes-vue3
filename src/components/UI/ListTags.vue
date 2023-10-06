@@ -5,7 +5,7 @@
       class="tag-item"
       v-for="(tag, index) in tags"
       :key="index"
-      @click="addTag"
+      @click="handleAddTag"
     >
       {{ tag }}
     </div>
@@ -30,7 +30,7 @@ export default {
     }
   },
   methods: {
-    addTag(event) {
+    handleAddTag(event) {
       event.target.classList.toggle('isActive')
       if (event.srcElement.className == 'tag-item isActive') {
         this.tagsActive.push(event.srcElement.innerText)
@@ -39,10 +39,8 @@ export default {
           elem => elem != event.srcElement.innerText
         )
       }
-      this.$emit('addTag', this.tagsActive)
+      this.$emit('onStoreTag', this.tagsActive)
     }
   }
 }
 </script>
-
-<style lang="scss"></style>

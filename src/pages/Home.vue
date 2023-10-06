@@ -1,14 +1,13 @@
 <template>
   <div>
-    <Form @addNote="addNote"></Form>
-    <ListNotes @deleteNote="deleteNote" :notes="notes" />
+    <Form @onStoreNote="handleAddNote" />
+    <ListNotes @onDestroyNote="handleDestoryNote" :notes="notes" />
   </div>
 </template>
 
 <script>
 import Form from '@/components/notes/Form.vue'
 import ListNotes from '@/components/notes/ListNotes.vue'
-
 import notes from '@/seeders/notes.json'
 
 export default {
@@ -22,11 +21,11 @@ export default {
     }
   },
   methods: {
-    addNote(newNote) {
+    handleAddNote(newNote) {
       this.notes.push(newNote)
     },
 
-    deleteNote(index) {
+    handleDestoryNote(index) {
       this.notes.splice(index, 1)
     },
     getNotes() {
@@ -51,5 +50,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss"></style>

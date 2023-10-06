@@ -1,12 +1,12 @@
 <template>
   <div class="note-form__wrapper">
-    <form class="note-form" @submit.prevent="addNote">
+    <form class="note-form" @submit.prevent="handleAddNote">
       <textarea
         required
-        v-model="valueNote.title"
+        v-model="defaultNote.title"
         placeholder="Введите новую заметку"
-      ></textarea>
-      <ListTags :tags="tags" @addTag="addTag"></ListTags>
+      />
+      <ListTags :tags="tags" @onStoreTag="handleAddTag" />
       <button class="btn btnPrimary" type="submit">Добавить</button>
     </form>
   </div>
@@ -20,7 +20,7 @@ export default {
   },
   data() {
     return {
-      valueNote: {
+      defaultNote: {
         title: '',
         tagsActive: []
       },
@@ -28,19 +28,16 @@ export default {
     }
   },
   methods: {
-    addNote() {
-      this.$emit('addNote', {
-        title: this.valueNote.title,
-        tag: this.valueNote.tagsActive
+    handleAddNote() {
+      this.$emit('onStoreNote', {
+        title: this.defaultNote.title,
+        tag: this.defaultNote.tagsActive
       })
-      this.valueNote.title = ''
+      this.defaultNote.title = ''
     },
-    addTag(tagsActive) {
-      console.log(tagsActive)
-      this.valueNote.tagsActive = [...tagsActive]
+    handleAddTag(tagsActive) {
+      this.defaultNote.tagsActive = [...tagsActive]
     }
   }
 }
 </script>
-
-<style lang="scss"></style>
